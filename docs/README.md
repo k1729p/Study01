@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<HTML>
+<HEAD>
+	<META charset="UTF-8">
+</HEAD>
+<BODY>
+<a href="../../../tree/main/docs"><IMG src="images/ColorScheme.png" height="25" width="800"/></a>
+<H2 id="contents">Study01 README Contents</H2>
+<H3>Research OpenAPI</H3>
+
+<IMG src="images/MermaidFlowchart.png" height="565" width="1020"/>
+
+<P>
+The API description format for the REST APIs is the <a href="https://spec.openapis.org/oas/v3.1.0"><b>OpenAPI Specification v3.1.0</b></a>.<br>
+For the API design and documentation, it is used the <a href="https://stoplight.io/"><b>Stoplight</b></a>.<br>
+This is an OpenAPI designer with a built-in style guide.
+</P>
+
+<P>
+The screenshots from the Stoplight API project 'KP_API01':
+<UL>
+<LI>endpoint <a href="images/ScreenshotStoplightCreateEmployee.png">
+'<b>Create Employee</b>'</a> presentation</LI>
+<LI>endpoint <a href="images/ScreenshotStoplightEditCreateEmployee.png">
+'<b>Create Employee</b>'</a> editing</LI>
+</UL>
+</P>
+
+<HR/>
+
+<P>
+The child projects of this project 'Study01':
+<OL>
+<LI><a href="#ONE"><b>Study01-1-generator</b></a>&nbsp;<img src="images/greenCircle.png">
+</LI>
+
+<LI><a href="#TWO"><b>Study01-2-server</b></a>&nbsp;<img src="images/greenCircle.png">
+SpringBoot Server</LI>
+
+<LI><a href="#THREE"><b>Study01-3-client</b></a>&nbsp;<img src="images/greenCircle.png">
+Java Client</LI>
+</OL>
+</P>
+
+<P>
+Java source code. Packages:<br>
+<img src="images/aquaHR-500.png"><br>
+<img src="images/aquaSquare.png">
+    <i>project 'Study01-2-server', application sources</i>&nbsp;:&nbsp;
+	<a href="https://github.com/k1729p/Study01/tree/main/2-server/src/main/java/kp">kp</a><br>
+<img src="images/aquaSquare.png">
+    <i>project 'Study01-2-server', test sources</i>&nbsp;:&nbsp;
+	<a href="https://github.com/k1729p/Study01/tree/main/2-server/src/test/java/kp">kp</a><br>
+<img src="images/aquaSquare.png">
+    <i>project 'Study01-3-client', application sources</i>&nbsp;:&nbsp;
+	<a href="https://github.com/k1729p/Study01/tree/main/3-client/src/main/java/kp/client">kp.client</a><br>
+<img src="images/aquaHR-500.png">
+</P>
+
+<P>
+<img src="images/yellowHR-500.png"><br>
+<img src="images/yellowSquare.png">
+    <i>project 'Study01-2-server'</i>&nbsp;:&nbsp;
+    <a href="http://htmlpreview.github.io/?https://github.com/k1729p/Study01/blob/main/2-server/docs/apidocs/index.html">
+	Java API Documentation</a>&nbsp;●&nbsp;
+    <a href="http://htmlpreview.github.io/?https://github.com/k1729p/Study01/blob/main/2-server/docs/testapidocs/index.html">
+	Java Test API Documentation</a><br>
+<img src="images/yellowSquare.png">
+    <i>project 'Study01-3-client'</i>&nbsp;:&nbsp;
+    <a href="http://htmlpreview.github.io/?https://github.com/k1729p/Study01/blob/main/3-client/docs/apidocs/overview-tree.html">
+	Java API Documentation</a><br>
+<img src="images/yellowHR-500.png">
+</P>
+
+<HR/>
+<H3 id="ONE">❶ Study01-1-generator</H3>
+
+<P>
+The server stubs are generated with the <a href="https://github.com/openapitools/openapi-generator">OpenAPI Generator</a>&nbsp; 
+<a href="https://github.com/OpenAPITools/openapi-generator/tree/master/modules/openapi-generator-maven-plugin">Maven plugin</a>.<br>
+The Maven plugin generates the Java classes for the API packages and the model packages.
+As a source, it uses the YAML file '<b><a href="https://raw.githubusercontent.com/k1729p/Study01/main/yaml/openapi.yaml">
+openapi.yaml</a></b>' (exported from Stoplight).
+</P>
+
+<P>Action:<br>
+<img src="images/orangeHR-500.png"><br>
+<img src="images/orangeSquare.png"> 1. With batch file
+ <a href="https://github.com/k1729p/Study01/blob/main/1-generator/0_batch/01%20MVN%20clean%20install.bat">
+ <I>"01 MVN clean install.bat"</I></a>
+ create library 'Study01-1-generator-1.0.0-SNAPSHOT.jar'.<br>
+<img src="images/orangeHR-500.png"></P>
+
+<a href="#top">Back to the top of the page</a>
+<HR/>
+<H3 id="TWO">❷ Study01-2-server</H3>
+
+<P>Action:<br>
+<img src="images/orangeHR-500.png"><br>
+<img src="images/orangeSquare.png"> 1. With batch file
+ <a href="https://github.com/k1729p/Study01/blob/main/2-server/0_batch/01%20MVN%20clean%20install%20run.bat">
+ <I>"01 MVN clean install run.bat"</I></a> start the SpringBoot server.<br>
+<img src="images/orangeSquare.png"> 2. With URL <a href="http://localhost:8080">http://localhost:8080</a> open in the web browser the 
+<a href="https://github.com/k1729p/Study01/blob/main/2-server/src/main/resources/static/index.html">home page</a>.<br>
+<img src="images/orangeSquare.png"> 3. On this
+<a href="https://github.com/k1729p/Study01/blob/main/2-server/src/main/resources/static/index.html">home page</a>
+select 'Load sample dataset'.<br>
+<img src="images/orangeSquare.png"> 4. With batch file
+ <a href="https://github.com/k1729p/Study01/blob/main/2-server/0_batch/02%20CURL%20CRUD.bat">
+ <I>"02 CURL CRUD.bat"</I></a> create, read, update, and delete departments and employees.<br>
+<img src="images/orangeSquare.png"> 5. With batch file
+ <a href="https://github.com/k1729p/Study01/blob/main/2-server/0_batch/03%20CURL%20load%20and%20read.bat">
+ <I>"03 CURL load and read.bat"</I></a> load the sample dataset and get departments and employees.<br>
+<img src="images/orangeHR-500.png"></P>
+
+<P><img src="images/greenCircle.png">
+2.1. The <a href="https://github.com/k1729p/Study01/blob/main/2-server/src/main/resources/static/index.html">home page</a>.<br>
+
+<IMG src="images/ScreenshotHomePage.png" height="390" width="590"/><BR>
+<img src="images/blackArrowUp.png">
+<I>The screenshot of the home page.</I>
+</P>
+
+<P>
+From point 2.2 to point 2.10 below are presented the results from links on the home page.
+</P>
+
+<P><img src="images/greenCircle.png">
+2.2. The 'Swagger UI' link: <a href="http://localhost:8080/swagger-ui/index.html">http://localhost:8080/swagger-ui/index.html</a><br>
+The screenshots of the accessed 'Swagger UI' pages:
+<UL>
+<LI>selected the definition
+ <a href="images/ScreenshotSwaggerDepartments.png">
+ '<b>Departments</b>'</a></LI>
+<LI>selected the definition
+ <a href="images/ScreenshotSwaggerEmployees.png">
+ '<b>Employees</b>'</a></LI>
+<LI>selected the definition 
+ <a href="images/ScreenshotSwaggerTitles.png">
+ '<b>Titles</b>'</a></LI>
+</UL>
+</P>
+
+<P><img src="images/greenCircle.png">
+2.3. The 'Get all <b>departments</b>' link: <a href="http://localhost:8080/departments">http://localhost:8080/departments</a>.<br>
+</P>
+<P>
+The controller method:
+<a href="https://github.com/k1729p/Study01/blob/main/2-server/src/main/java/kp/company/controller/DepartmentsController.java#L43">
+kp.company.controller.DepartmentsController::getDepartments</a>.<br>
+</P>
+<P><IMG src="images/GetAllDepartments.png" height="655" width="305"/><BR>
+<img src="images/blackArrowUp.png">
+<I>The result from the 'Get all <b>departments</b>'.</I></P>
+
+<P><img src="images/greenCircle.png">
+2.4. The 'Get the <b>department</b> by id' link: <a href="http://localhost:8080/departments/1">http://localhost:8080/departments/1</a>.<br>
+</P>
+<P>
+The controller method:
+<a href="https://github.com/k1729p/Study01/blob/main/2-server/src/main/java/kp/company/controller/DepartmentsController.java#L69">
+kp.company.controller.DepartmentsController::getDepartmentById</a>.<br>
+</P>
+<P><IMG src="images/GetAllDepartmentsById.png" height="320" width="280"/><BR>
+<img src="images/blackArrowUp.png">
+<I>The result from the 'Get the <b>department</b> by id'.</I></P>
+
+<P><img src="images/greenCircle.png">
+2.5. The 'Get all <b>employees</b> in department' link: <a href="http://localhost:8080/departments/1/employees">http://localhost:8080/departments/1/employees</a>.<br>
+</P>
+<P>
+The controller method:
+<a href="https://github.com/k1729p/Study01/blob/main/2-server/src/main/java/kp/company/controller/DepartmentsController.java#L106">
+kp.company.controller.DepartmentsController::getEmployeesInDepartment</a>.<br>
+</P>
+<P><IMG src="images/GetAllEmployeesInDepartment.png" height="250" width="245"/><BR>
+<img src="images/blackArrowUp.png">
+<I>The result from the 'Get all <b>employees</b> in department'.</I></P>
+
+<P><img src="images/greenCircle.png">
+2.6. The 'Get the <b>employee</b> in department by ids' link: <a href="http://localhost:8080/departments/1/employees/101">http://localhost:8080/departments/1/employees/101</a>.<br>
+</P>
+<P>
+The controller method:
+<a href="https://github.com/k1729p/Study01/blob/main/2-server/src/main/java/kp/company/controller/DepartmentsController.java#L133">
+kp.company.controller.DepartmentsController::getEmployeeInDepartmentByIds</a>.<br>
+</P>
+<P><IMG src="images/GetAllEmployeesInDepartmentByIds.png" height="115" width="220"/><BR>
+<img src="images/blackArrowUp.png">
+<I>The result from the 'Get the <b>employee</b> in department by ids'.</I></P>
+
+<P><img src="images/greenCircle.png">
+2.7. The 'Get all <b>employees</b>' link: <a href="http://localhost:8080/employees">http://localhost:8080/employees</a>.<br>
+</P>
+<P>
+The controller method:
+<a href="https://github.com/k1729p/Study01/blob/main/2-server/src/main/java/kp/company/controller/EmployeesController.java#L35">
+kp.company.controller.EmployeesController::getEmployees</a>.<br>
+</P>
+<P><IMG src="images/GetAllEmployees.png" height="455" width="245"/><BR>
+<img src="images/blackArrowUp.png">
+<I>The result from the 'Get all <b>employees</b>'.</I></P>
+
+<P><img src="images/greenCircle.png">
+2.8. The 'Get all <b>titles</b>' link: <a href="http://localhost:8080/titles">http://localhost:8080/titles</a>.<br>
+</P>
+<P>
+The controller method:
+<a href="https://github.com/k1729p/Study01/blob/main/2-server/src/main/java/kp/company/controller/TitlesController.java#L33">
+kp.company.controller.TitlesController::getTitles</a>.<br>
+</P>
+<P><IMG src="images/GetAllTitles.png" height="95" width="125"/><BR>
+<img src="images/blackArrowUp.png">
+<I>The result from the 'Get all <b>titles</b>'.</I></P>
+
+<P><img src="images/greenCircle.png">
+2.9. The 'API Documentation' link: <a href="http://localhost:8080/v3/api-docs">http://localhost:8080/v3/api-docs</a>.<br>
+</P>
+<P><IMG src="images/ApiDocumentation.png" height="835" width="360"/><BR>
+<img src="images/blackArrowUp.png">
+<I>The result from the 'API Documentation'.</I></P>
+
+<P><img src="images/greenCircle.png">
+2.10. The 'Actuator' link: <a href="http://localhost:8080/actuator">http://localhost:8080/actuator</a>.<br>
+</P>
+<P><IMG src="images/Actuator.png" height="280" width="480"/><BR>
+<img src="images/blackArrowUp.png">
+<I>The result from the 'Actuator'.</I></P>
+
+<P><img src="images/greenCircle.png">
+2.11. The controller methods are called with the execution of the batch file <b>"02 CURL CRUD.bat"</b>.<br>
+<UL>
+<LI>The methods for '<i>CREATE</i>':<br>
+<a href="https://github.com/k1729p/Study01/blob/main/2-server/src/main/java/kp/company/controller/DepartmentsController.java#L56">
+kp.company.controller.DepartmentsController::createDepartment</a><br>
+<a href="https://github.com/k1729p/Study01/blob/main/2-server/src/main/java/kp/company/controller/DepartmentsController.java#L118">
+kp.company.controller.DepartmentsController::createEmployeeInDepartment</a></LI>
+<LI>The methods for '<i>READ</i>':<br>
+<a href="https://github.com/k1729p/Study01/blob/main/2-server/src/main/java/kp/company/controller/DepartmentsController.java#L69">
+kp.company.controller.DepartmentsController::getDepartmentById</a><br>
+<a href="https://github.com/k1729p/Study01/blob/main/2-server/src/main/java/kp/company/controller/DepartmentsController.java#L133">
+kp.company.controller.DepartmentsController::getEmployeeInDepartmentByIds</a></LI>
+<LI>The methods for '<i>UPDATE</i>':<br>
+<a href="https://github.com/k1729p/Study01/blob/main/2-server/src/main/java/kp/company/controller/DepartmentsController.java#L93">
+kp.company.controller.DepartmentsController::updateDepartment</a><br>
+<a href="https://github.com/k1729p/Study01/blob/main/2-server/src/main/java/kp/company/controller/DepartmentsController.java#L159">
+kp.company.controller.DepartmentsController::updateEmployeeInDepartment</a></LI>
+<LI>The methods for '<i>DELETE</i>':<br>
+<a href="https://github.com/k1729p/Study01/blob/main/2-server/src/main/java/kp/company/controller/DepartmentsController.java#L81">
+kp.company.controller.DepartmentsController::deleteDepartment</a><br>
+<a href="https://github.com/k1729p/Study01/blob/main/2-server/src/main/java/kp/company/controller/DepartmentsController.java#L146">
+kp.company.controller.DepartmentsController::deleteEmployeeInDepartment</a></LI>
+</UL>
+The <a href="images/ScreenshotCurlCrud.png">
+<b>screenshot</b></a>
+of the console log from the run of the batch file <b>"02 CURL CRUD.bat"</b>
+</P>
+
+<P><img src="images/greenCircle.png">
+2.12. The <a href="images/ScreenshotCurlLoadAndRead.png">
+<b>screenshot</b></a>
+of the console log from the run of the batch file <b>"03 CURL load and read.bat"</b>
+</P>
+
+<a href="#top">Back to the top of the page</a>
+<HR/>
+<H3 id="THREE">❸ Study01-3-client</H3>
+
+<P>
+The API client is generated with the <a href="https://github.com/openapitools/openapi-generator">OpenAPI Generator</a>&nbsp; 
+<a href="https://github.com/OpenAPITools/openapi-generator/tree/master/modules/openapi-generator-maven-plugin">Maven plugin</a>.<br>
+</P>
+
+<P>Action:<br>
+<img src="images/orangeHR-500.png"><br>
+<img src="images/orangeSquare.png"> 1. With batch file
+ <a href="https://github.com/k1729p/Study01/blob/main/3-client/0_batch/01%20MVN%20clean%20install%20run.bat">
+ <I>"01 MVN clean install run.bat"</I></a> build and start the client application.<br>
+<img src="images/orangeHR-500.png"></P>
+
+<P><img src="images/greenCircle.png">
+3.1. Class <a href="https://github.com/k1729p/Study01/blob/main/3-client/src/main/java/kp/client/ClientApplication.java">
+kp.client.ClientApplication</a></P>
+
+<P><IMG src="images/ClientApplicationCallEndpoints.png" height="190" width="755"/><BR>
+<img src="images/blackArrowUp.png">
+<I>Console log from 'ClientApplication.callEndpoints()' method.</I></P>
+
+<a href="#top">Back to the top of the page</a>
+<HR/>
+</BODY>
+</HTML>
