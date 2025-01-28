@@ -1,0 +1,147 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <title>Study01</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="shortcut icon" href="static/favicon.ico"/>
+    <style>
+        body {
+          background-color: wheat;
+        }
+        table {
+          width: 100%;
+          border-collapse: collapse;
+          border: 1px solid black;
+        }
+        caption {
+          padding: 5px;
+        }
+        table td {
+          padding: 3px;
+          border: 1px solid black;
+        }
+        table tr:hover td {
+          background: palegreen;
+        }
+        .col-1 {
+          width: 30%
+        }
+        .col-2 {
+          width: 70%
+        }
+        .col-3 {
+          width: 25%
+        }
+    </style>
+</head>
+<body>
+<h1>Study01</h1>
+
+<table>
+    <tr>
+        <td class="col-1">
+            Load sample dataset
+        </td>
+        <td class="col-2">
+            <a href="/loadSampleDataset">/loadSampleDataset</a>
+        </td>
+    </tr>
+    <tr>
+        <td class="col-1">
+            <mark>Swagger UI</mark>
+            (OpenAPI Definitions)
+        </td>
+        <td class="col-2">
+            <a href="/swagger-ui/index.html">/swagger-ui/index.html</a><br/>
+        </td>
+    </tr>
+</table>
+
+<p></p>
+
+<table>
+    <tr>
+        <td class="col-1">
+            Get all <b>departments</b>
+        </td>
+        <td class="col-2">
+            <a href="/departments">/departments</a><br/>
+        </td>
+    </tr>
+    <tr>
+        <td class="col-1">
+            Get the <b>department</b> by id
+        </td>
+        <td class="col-2">
+            <a href="/departments/1">/departments/1</a>
+        </td>
+    </tr>
+    <tr>
+        <td class="col-1">
+            Get all <b>employees</b> in department
+        </td>
+        <td class="col-2">
+            <a href="/departments/1/employees">/departments/1/employees</a><br/>
+        </td>
+    </tr>
+    <tr>
+        <td class="col-1">
+            Get the <b>employee</b> in department by ids
+        </td>
+        <td class="col-2">
+            <a href="/departments/1/employees/101">/departments/1/employees/101</a><br/>
+        </td>
+    </tr>
+</table>
+
+<p></p>
+
+<table>
+    <tr>
+        <td class="col-1">
+            Get all <b>employees</b>
+        </td>
+        <td class="col-2">
+            <a href="/employees">/employees</a><br/>
+        </td>
+    </tr>
+    <tr>
+        <td class="col-1">
+            Get all <b>titles</b>
+        </td>
+        <td class="col-2">
+            <a href="/titles">/titles</a><br/>
+        </td>
+    </tr>
+</table>
+
+<p></p>
+
+<table>
+    <tr>
+        <td class="col-1">
+            API Documentation
+        </td>
+        <td class="col-2">
+            <a href="/v3/api-docs">/v3/api-docs</a>
+        </td>
+    </tr>
+    <tr>
+        <td class="col-1">
+            API Documentation / Swagger Configuration
+        </td>
+        <td class="col-2">
+            <a href="/v3/api-docs/swagger-config">/v3/api-docs/swagger-config</a>
+        </td>
+    </tr>
+    <tr>
+        <td class="col-1">
+            Actuator
+        </td>
+        <td class="col-2">
+            <a href="/actuator">/actuator</a>
+        </td>
+    </tr>
+</table>
+</body>
+</html>

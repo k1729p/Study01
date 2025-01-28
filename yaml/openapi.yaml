@@ -1,0 +1,462 @@
+openapi: 3.1.1
+info:
+  title: Study01 API
+  description: |
+    The project is based on the OpenAPI 3 specification.
+    - [Portfolio](https://github.com/k1729p/Portfolio)
+  termsOfService: 'https://example.com/terms/'
+  contact:
+    name: API Support
+    url: 'http://www.example.com/support'
+    email: support@example.com
+  license:
+    name: Apache 2.0
+    url: 'https://www.apache.org/licenses/LICENSE-2.0.html'
+  version: 1.0.0
+servers:
+  - url: 'http://localhost:8080'
+    description: The development server
+paths:
+  /departments:
+    get:
+      tags:
+        - departments
+      summary: Get all departments
+      description: Retrieve all departments
+      operationId: getDepartments
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Department'
+              examples:
+                example-1:
+                  value:
+                    - id: 1
+                      name: D-Name-01
+                      employees:
+                        - id: 101
+                          firstName: EF-Name-101
+                          lastName: EL-Name-101
+                          title: manager
+                        - id: 102
+                          firstName: EF-Name-102
+                          lastName: EL-Name-102
+                          title: analyst
+                    - id: 2
+                      name: D-Name-02
+                      employees:
+                        - id: 201
+                          firstName: EF-Name-201
+                          lastName: EL-Name-201
+                          title: manager
+                        - id: 202
+                          firstName: EF-Name-202
+                          lastName: EL-Name-202
+                          title: developer
+        '400':
+          description: Bad Request
+        '404':
+          description: Not Found
+    post:
+      tags:
+        - departments
+      summary: Create a new department
+      description: Create a new department
+      operationId: createDepartment
+      requestBody:
+        $ref: '#/components/requestBodies/DepartmentBody'
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Department'
+              examples:
+                example-1:
+                  value:
+                    id: 1
+                    name: D-Name-01
+                    employees:
+                      - id: 101
+                        firstName: EF-Name-101
+                        lastName: EL-Name-101
+                        title: analyst
+                      - id: 102
+                        firstName: EF-Name-102
+                        lastName: EL-Name-102
+                        title: developer
+        '400':
+          description: Bad Request
+        '405':
+          description: 'Method Not Allowed, validation exception'
+  '/departments/{depId}':
+    get:
+      tags:
+        - departments
+      summary: Get department by ID
+      description: Retrieve the department by department ID
+      operationId: getDepartmentById
+      parameters:
+        - $ref: '#/components/parameters/depIdParam'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Department'
+              examples:
+                example-1:
+                  value:
+                    id: 1
+                    name: D-Name-01
+                    employees:
+                      - id: 101
+                        firstName: EF-Name-101
+                        lastName: EL-Name-101
+                        title: analyst
+                      - id: 102
+                        firstName: EF-Name-102
+                        lastName: EL-Name-102
+                        title: developer
+        '400':
+          description: Bad Request
+        '404':
+          description: Not Found
+    patch:
+      tags:
+        - departments
+      summary: Update department by ID
+      description: Update the department by department ID
+      operationId: updateDepartment
+      parameters:
+        - $ref: '#/components/parameters/depIdParam'
+      requestBody:
+        $ref: '#/components/requestBodies/DepartmentBody'
+      responses:
+        '204':
+          description: No Content
+        '400':
+          description: Bad Request
+        '404':
+          description: Not Found
+        '405':
+          description: 'Method Not Allowed, validation exception'
+    delete:
+      tags:
+        - departments
+      summary: Delete department by ID
+      description: Delete the department by department ID
+      operationId: deleteDepartment
+      parameters:
+        - $ref: '#/components/parameters/depIdParam'
+      responses:
+        '204':
+          description: No Content
+        '400':
+          description: Bad Request
+        '404':
+          description: Not Found
+  '/departments/{depId}/employees':
+    get:
+      tags:
+        - departments
+      summary: Get all employees in the department
+      description: Retrieve all employees in the department
+      operationId: getEmployeesInDepartment
+      parameters:
+        - $ref: '#/components/parameters/depIdParam'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Employee'
+              examples:
+                example-1:
+                  value:
+                    - id: 101
+                      firstName: EF-Name-101
+                      lastName: EL-Name-101
+                      title: analyst
+                    - id: 102
+                      firstName: EF-Name-102
+                      lastName: EL-Name-102
+                      title: developer
+        '400':
+          description: Bad Request
+        '404':
+          description: Not Found
+    post:
+      tags:
+        - departments
+      summary: Create a new employee in the department
+      description: Create a new employee in the department
+      operationId: createEmployeeInDepartment
+      parameters:
+        - $ref: '#/components/parameters/depIdParam'
+      requestBody:
+        $ref: '#/components/requestBodies/EmployeeBody'
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Employee'
+        '400':
+          description: Bad Request
+        '405':
+          description: 'Method Not Allowed, validation exception'
+  '/departments/{depId}/employees/{empId}':
+    get:
+      tags:
+        - departments
+      summary: Get employee in department by department ID and employee ID
+      description: Retrieve the employee in the department by department ID and employee ID
+      operationId: getEmployeeInDepartmentByIds
+      parameters:
+        - $ref: '#/components/parameters/depIdParam'
+        - $ref: '#/components/parameters/empIdParam'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Employee'
+        '400':
+          description: Bad Request
+        '404':
+          description: Not Found
+    patch:
+      tags:
+        - departments
+      summary: Update employee in department by department ID and employee ID
+      description: Update the employee in the department by department ID and employee ID
+      operationId: updateEmployeeInDepartment
+      parameters:
+        - $ref: '#/components/parameters/depIdParam'
+        - $ref: '#/components/parameters/empIdParam'
+      requestBody:
+        $ref: '#/components/requestBodies/EmployeeBody'
+      responses:
+        '204':
+          description: No Content
+        '400':
+          description: Bad Request
+        '404':
+          description: Not Found
+        '405':
+          description: 'Method Not Allowed, validation exception'
+    delete:
+      tags:
+        - departments
+      summary: Delete employee in department by department ID and employee ID
+      description: Delete the employee in the department by department ID and employee ID
+      operationId: deleteEmployeeInDepartment
+      parameters:
+        - $ref: '#/components/parameters/depIdParam'
+        - $ref: '#/components/parameters/empIdParam'
+      responses:
+        '204':
+          description: No Content
+        '400':
+          description: Bad Request
+        '404':
+          description: Not Found
+  /employees:
+    get:
+      tags:
+        - employees
+      summary: Get all employees
+      description: Retrieve all employees
+      operationId: getEmployees
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Employee'
+              examples:
+                example-1:
+                  value:
+                    - id: 101
+                      firstName: EF-Name-101
+                      lastName: EL-Name-101
+                      title: analyst
+                    - id: 102
+                      firstName: EF-Name-102
+                      lastName: EL-Name-102
+                      title: developer
+        '400':
+          description: Bad Request
+        '404':
+          description: Not Found
+  /titles:
+    get:
+      tags:
+        - titles
+      summary: Get all titles
+      description: Retrieve all titles
+      operationId: getTitles
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Title'
+              examples:
+                example-1:
+                  value:
+                    - analyst
+                    - developer
+                    - manager
+        '400':
+          description: Bad Request
+        '404':
+          description: Not Found
+externalDocs:
+  description: The Portfolio
+  url: 'https://github.com/ee-eng-cs/Portfolio'
+components:
+  schemas:
+    Department:
+      type: object
+      description: The department
+      x-examples:
+        example-1:
+          id: 1
+          name: D-Name-01
+          employees:
+            - id: 101
+              firstName: EF-Name-101
+              lastName: EL-Name-101
+              title: analyst
+            - id: 102
+              firstName: EF-Name-102
+              lastName: EL-Name-102
+              title: developer
+      properties:
+        id:
+          type: integer
+          format: int64
+          description: The ID of the department
+          example: 1
+          minimum: 1
+        name:
+          type: string
+          description: The name of the department
+          example: D-Name-01
+          pattern: '^[A-Za-z0-9 -_]+'
+          minLength: 2
+          maxLength: 25
+        employees:
+          type: array
+          description: The list of employees
+          items:
+            $ref: '#/components/schemas/Employee'
+    Employee:
+      type: object
+      description: The employee
+      properties:
+        id:
+          type: integer
+          format: int64
+          description: The ID of the employee
+          example: 101
+          minimum: 1
+        firstName:
+          type: string
+          description: The first name of the employee
+          example: EF-Name-101
+          pattern: '^[A-Za-z0-9 -_]+'
+          minLength: 2
+          maxLength: 25
+        lastName:
+          type: string
+          description: The last name of the employee
+          example: EL-Name-101
+          pattern: '^[A-Za-z0-9 -_]+'
+          minLength: 2
+          maxLength: 25
+        title:
+          $ref: '#/components/schemas/Title'
+      x-examples:
+        example-1:
+          id: 101
+          firstName: EF-Name-101
+          lastName: EL-Name-101
+          title: analyst
+    Title:
+      type: string
+      description: The title of the employee
+      enum:
+        - analyst
+        - developer
+        - manager
+      example: analyst
+      x-examples:
+        example-1: analyst
+  responses: { }
+  parameters:
+    depIdParam:
+      name: depId
+      in: path
+      description: The ID of the department
+      required: true
+      schema:
+        type: integer
+        format: int64
+        minimum: 1
+    empIdParam:
+      name: empId
+      in: path
+      description: The ID of the employee
+      required: true
+      schema:
+        type: integer
+        format: int64
+        minimum: 1
+  examples: { }
+  requestBodies:
+    DepartmentBody:
+      description: The request body with the department
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Department'
+    EmployeeBody:
+      description: The request body with the employee
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Employee'
+  headers: { }
+  securitySchemes: { }
+  links: { }
+  callbacks: { }
+tags:
+  - name: departments
+    description: The departments
+  - name: employees
+    description: The employees
+  - name: titles
+    description: The titles
